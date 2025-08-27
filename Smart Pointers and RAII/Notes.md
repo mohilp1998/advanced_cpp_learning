@@ -7,3 +7,7 @@ Smart pointers are basically classes designed to wrap a pointer which allows thi
 ## shared_ptr
 `std::shared_ptr` is a smart pointer which works on shared ownership semantics. It keeps a reference count for all the pointers pointing to the object and deletes the object once the reference count reaches 0.
 Interesting note: Incrementing and decrementing reference count is thread safe, but access to base underlying object is not thread safe.
+
+## weak_ptr
+`std::weak_ptr` is a smart pointer with "non-owning" reference to an object managed by `std::shared_ptr`. `std::weak_ptr` allow breaking cyclic dependencies making sure we can delete objects in case of cyclic shared ptr dependencies.
+To access a weak_ptr, you need to use `weak_ptr.lock()`, which converts it to a shared_ptr for the duration thus allowing access to the object. `.lock()` will return null ptr if base `shared_ptr` has been deleted.
