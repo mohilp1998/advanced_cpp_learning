@@ -25,3 +25,7 @@ Doing this allows user to avoid doing manual code for many cases, for e.g. if we
 use `std::lock_guard`. What `lock_guard` does is on construction of the object it automatically acquires the lock and when object goes out of scope the destructor will destroy the object for us, thus never needing use to make sure we do `unlock` everywhere.
 
 Refer to the example code of RAII for file handle to see how it is done.
+
+
+# UniquePtr Class Implementation
+Check out UniquePtr class implementation. This class replicated the functionality of `std::unique_ptr`. The details about the requirements and problem statement is in the `implement_unique_ptr.cpp` class.
